@@ -18,8 +18,13 @@ inquirer
         },
         {
             type: 'input',
-            name: 'repot',
+            name: 'repo',
             message: 'What is your repository name?',
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'What is your email address?'
         },
         {
             type: 'input',
@@ -29,7 +34,7 @@ inquirer
         {
             //Allows user to check what they would like to include in Table of Contents
             type: 'checkbox',
-            name: 'table of contents',
+            name: 'contents',
             message: 'What would you like to include in your Table of Contents?',
             choices: ['Installation', 'Usage', 'Credits', 'License'],
         },
@@ -37,6 +42,26 @@ inquirer
             type: 'input',
             name: 'installation',
             message: 'What are your directions for installation?',
+        },
+        {
+            type: 'input',
+            name: 'usage',
+            message: 'Enter usage information.',
+        },
+        {
+            type: 'input',
+            name: 'test',
+            message: 'Provide test instructions.'
+        },
+        {
+            type: 'input',
+            name: 'contrib',
+            message: 'Enter directions for contributing.',
+        },
+        {
+            type: 'input',
+            name: 'collab',
+            message: 'Provide any collaborators on the project.',
         },
         {
             type: 'input',
@@ -48,6 +73,59 @@ inquirer
             type: 'list',
             name: 'license',
             message: 'Which license would you like to inlcude?',
-            choices: ['MIT', 'MPL', 'GNU GPLv3', 'Other']
+            choices: ['MIT', 'MPL', 'GNU GPLv3', 'Other/Write My Own']
         }
     ])
+    .then(({
+        title,
+        username,
+        repo,
+        description,
+        contents,
+        installation,
+        usage,
+        test,
+        contrib,
+        collab,
+        credits,
+        license,
+    }) => {
+        const format = 
+        
+        `# ${title}
+        
+        *[Description](#description)
+        *[contents](#contents)
+        *[installation](#installation)
+        *[usage](#usage)
+        *[test](#test)
+        *[constribution](#contribution)
+        *[collaboration](#collaboration)
+        *[credits](#credits)
+        *[license](#license)
+        
+        ## Description
+        ${description}
+        ## Contents
+        ${contents}
+        ## Installation
+        ${installation}
+        ## Usage
+        ${usage}
+        ## test
+        ${test}
+        ## Contribution
+        ${contrib}
+        ## Collaboration
+        ${collab}
+        ## Credits
+        ${credits}
+        ## Lincense
+        ${license}
+
+        # Questions
+        *GitHub: ${username}
+        *Email: ${email}
+
+        `
+    })
