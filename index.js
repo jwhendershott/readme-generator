@@ -89,50 +89,52 @@ inquirer
         collab,
         credits,
         license,
+        email,
     }) => {
-        const format = 
+const format = 
         
-        `# ${title}
+`# ${title}
         
-        *[Description](#description)
-        *[contents](#contents)
-        *[installation](#installation)
-        *[usage](#usage)
-        *[test](#test)
-        *[constribution](#contribution)
-        *[collaboration](#collaboration)
-        *[credits](#credits)
-        *[license](#license)
+*[Description](#description)
+*[contents](#contents)
+*[installation](#installation)
+*[usage](#usage)
+*[test](#test)
+*[constribution](#contribution)
+*[collaboration](#collaboration)
+*[credits](#credits)
+*[license](#license)
         
-        ## Description
-        ${repo}
-        ${description}
-        ## Contents
-        ${contents}
-        ## Installation
-        ${installation}
-        ## Usage
-        ${usage}
-        ## test
-        ${test}
-        ## Contribution
-        ${contrib}
-        ## Collaboration
-        ${collab}
-        ## Credits
-        ${credits}
-        ## Lincense
-        ${license}
+## Description
+${repo}
 
-        # Questions
-        *GitHub: ${username}
-        *Email: ${email}`;
-        newFile(title,format);
+${description}
+## Contents
+${contents}
+## Installation
+${installation}
+## Usage
+${usage}
+## test
+${test}
+## Contribution
+${contrib}
+## Collaboration
+${collab}
+## Credits
+${credits}
+## Lincense
+${license}
+
+## Questions
+* GitHub: ${username}
+* Email: ${email}`;
+newFile(title,format);
 });
 
 //function to write new file
 function newFile(fileName,data){
-    fs.writeFile(`./${fileName.toLowerCase().split(' ')}.md`,data, (err) => {
+    fs.writeFile(`./${fileName.toLowerCase().split(' ').join('')}.md`,data, (err) => {
         if (err) {
             console.log(err)
         }
