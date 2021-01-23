@@ -74,7 +74,6 @@ inquirer
         username,
         repo,
         description,
-        contents,
         installation,
         usage,
         test,
@@ -89,15 +88,14 @@ const format =
 `# ${title}
  
 ## Table of Contents
-*[Description](#description)
-*[Contents](#contents)
-*[Installation](#installation)
-*[Usage](#usage)
-*[Test](#test)
-*[Constribution](#contribution)
-*[Collaboration](#collaboration)
-*[Credits](#credits)
-*[License](#license)
+* [Description](#description)
+* [Installation](#installation)
+* [Usage](#usage)
+* [Test](#test)
+* [Constribution](#contribution)
+* [Collaboration](#collaboration)
+* [Credits](#credits)
+* [License](#license)
         
 ## Description
 ${repo}
@@ -119,7 +117,7 @@ ${credits}
 ${license}
 
 ## Questions
-* GitHub: ${username}
+* GitHub: https://github.com/${username}
 * Email: ${email}`;
 newFile(title,format);
 });
