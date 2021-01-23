@@ -32,13 +32,6 @@ inquirer
             message: 'What is your project description?',
         },
         {
-            //Allows user to check what they would like to include in Table of Contents
-            type: 'checkbox',
-            name: 'contents',
-            message: 'What would you like to include in your Table of Contents?',
-            choices: ['Installation', 'Usage', 'Credits', 'License'],
-        },
-        {
             type: 'input',
             name: 'installation',
             message: 'What are your directions for installation?',
@@ -94,28 +87,27 @@ inquirer
 const format = 
         
 `# ${title}
-        
+ 
+## Table of Contents
 *[Description](#description)
-*[contents](#contents)
-*[installation](#installation)
-*[usage](#usage)
-*[test](#test)
-*[constribution](#contribution)
-*[collaboration](#collaboration)
-*[credits](#credits)
-*[license](#license)
+*[Contents](#contents)
+*[Installation](#installation)
+*[Usage](#usage)
+*[Test](#test)
+*[Constribution](#contribution)
+*[Collaboration](#collaboration)
+*[Credits](#credits)
+*[License](#license)
         
 ## Description
 ${repo}
 
 ${description}
-## Contents
-${contents}
 ## Installation
 ${installation}
 ## Usage
 ${usage}
-## test
+## Test
 ${test}
 ## Contribution
 ${contrib}
@@ -123,7 +115,7 @@ ${contrib}
 ${collab}
 ## Credits
 ${credits}
-## Lincense
+## License
 ${license}
 
 ## Questions
@@ -134,7 +126,7 @@ newFile(title,format);
 
 //function to write new file
 function newFile(fileName,data){
-    fs.writeFile(`./${fileName.toLowerCase().split(' ').join('')}.md`,data, (err) => {
+    fs.writeFile(`./${'README'.split(' ').join('')}.md`,data, (err) => {
         if (err) {
             console.log(err)
         }
