@@ -19,7 +19,7 @@ inquirer
         {
             type: 'input',
             name: 'repo',
-            message: 'What is your repository name?',
+            message: 'What is your repository URL?',
         },
         {
             type: 'input',
@@ -105,6 +105,7 @@ inquirer
         *[license](#license)
         
         ## Description
+        ${repo}
         ${description}
         ## Contents
         ${contents}
@@ -125,7 +126,16 @@ inquirer
 
         # Questions
         *GitHub: ${username}
-        *Email: ${email}
+        *Email: ${email}`;
+        newFile(title,format);
+});
 
-        `
+//function to write new file
+function newFile(fileName,data){
+    fs.writeFile(`./${fileName.toLowerCase().split(' ')}.md`,data, (err) => {
+        if (err) {
+            console.log(err)
+        }
+        console.log('Your document has been generated.');
     })
+}
