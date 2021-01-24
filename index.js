@@ -1,5 +1,4 @@
 // Set global variables
-
 const inquirer = require('inquirer');
 const fs = require('fs');
 
@@ -66,7 +65,7 @@ inquirer
             type: 'list',
             name: 'license',
             message: 'Which license would you like to inlcude?',
-            choices: ['MIT', 'MPL', 'GNU GPLv3', 'Other/Write My Own']
+            choices: ['MIT', 'MPL', 'GNU']
         }
     ])
     .then(({
@@ -100,6 +99,8 @@ const format =
 ## Description
 ${repo}
 
+![${license}](https://img.shields.io/badge/License-${license}-green)
+
 ${description}
 ## Installation
 ${installation}
@@ -119,12 +120,12 @@ ${license}
 ## Questions
 * GitHub: https://github.com/${username}
 * Email: ${email}`;
-newFile(title,format);
+writeToFile(title,format);
 });
 
 //function to write new file
-function newFile(fileName,data){
-    fs.writeFile(`./${'README'.split(' ').join('')}.md`,data, (err) => {
+function writeToFile(fileName,data){
+    fs.writeFile(`README.md`,data, (err) => {
         if (err) {
             console.log(err)
         }
