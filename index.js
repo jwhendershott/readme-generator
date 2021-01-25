@@ -61,7 +61,6 @@ inquirer
             message: 'What credits would you like to add?',
         },
         {
-            //Provides list of licenses
             type: 'list',
             name: 'license',
             message: 'Which license would you like to inlcude?',
@@ -114,8 +113,6 @@ ${contrib}
 ${collab}
 ## Credits
 ${credits}
-## License
-${license}
 
 ## Questions
 * GitHub: https://github.com/${username}
