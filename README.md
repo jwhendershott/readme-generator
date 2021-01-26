@@ -19,7 +19,9 @@ www.github.com/jwhendershott/readme-generator
 A node based application that generates READMEs to be edited as needed.
 
 ## Installation
-install it
+Clone from repository and run index.js in terminal. 
+
+Installation of node is required.
 
 ## Credits
 UT Coding Bootcamp
